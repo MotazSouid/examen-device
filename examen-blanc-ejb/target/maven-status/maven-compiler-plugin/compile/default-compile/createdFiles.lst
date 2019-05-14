@@ -1,0 +1,8 @@
+tn\entities\Device.class
+tn\services\EmployeService.class
+tn\entities\EmployeeType.class
+tn\entities\DeviceType.class
+tn\entities\Employee.class
+tn\interfaces\EmployeeServiceLocal.class
+tn\entities\Brand.class
+tn\interfaces\EmployeeServiceRemote.class
