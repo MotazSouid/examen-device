@@ -7,12 +7,12 @@ xmlns:ui="http://java.sun.com/jsf/facelets" template="/template/template.xhtml">
 <h:form id="form">
 <h:outputText value="Connexion" />
 <h:panelGrid columns="2">
-<h:outputText value="Login" />
-<h:inputText value="#{examenBean.login}" />
+<h:outputText value="Matricule" />
+<h:inputText value="#{examenBean.matricule}" />
 
 <h:outputText value="Password" />
 <h:inputText value="#{examenBean.password}" />
-<h:commandButton id="btn" value="Connexion" action="#{examenBean.Login()}" />
+<h:commandButton id="btn" value="Connexion" action="#{examenBean.login()}" />
 	
 
 </h:panelGrid>

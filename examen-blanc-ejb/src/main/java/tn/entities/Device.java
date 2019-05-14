@@ -15,8 +15,10 @@ public class Device implements Serializable {
 	   
 	@Id
 	private String uniqueIdentifier;
+	@Enumerated(EnumType.STRING)
 	private DeviceType deviceType;
 	private String modelName;
+	@Enumerated(EnumType.STRING)
 	private Brand brand;
 	@ManyToOne
 	private Employee employee;
@@ -58,6 +60,13 @@ public class Device implements Serializable {
 	}
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
+	}
+	public Device(String uniqueIdentifier, DeviceType deviceType, String modelName, Brand brand) {
+		super();
+		this.uniqueIdentifier = uniqueIdentifier;
+		this.deviceType = deviceType;
+		this.modelName = modelName;
+		this.brand = brand;
 	}
 
    

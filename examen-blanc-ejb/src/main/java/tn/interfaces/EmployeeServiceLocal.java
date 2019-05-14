@@ -19,5 +19,7 @@ public interface EmployeeServiceLocal {
 	public List<Device> getDevicesByEmploye(Long matricule);
 	
 	public void suppEmpAllDev (Long matricule);
+	
+	public Employee login(Long matricule, String password);
 
 }

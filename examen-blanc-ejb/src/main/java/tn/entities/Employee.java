@@ -16,11 +16,12 @@ public class Employee implements Serializable {
 
 	   
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long matricule;
 	private String firstName;
 	private String lastName;
 	private String password;
+	@Enumerated(EnumType.STRING)
 	private EmployeeType employeeType;
 	@OneToMany(mappedBy="employee", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Device> devices ; 

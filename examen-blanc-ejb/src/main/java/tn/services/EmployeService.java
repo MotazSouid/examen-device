@@ -19,9 +19,6 @@ import tn.interfaces.EmployeeServiceRemote;
  * Session Bean implementation class EmployeService
  */
 @Stateless
-@Local(EmployeeServiceLocal.class)
-@Remote(EmployeeServiceRemote.class)
-@LocalBean
 public class EmployeService implements EmployeeServiceLocal, EmployeeServiceRemote {
 
 	private static final long serialVersionUID = 1L;
@@ -76,5 +73,39 @@ public class EmployeService implements EmployeeServiceLocal, EmployeeServiceRemo
         Employee emp = em.find(Employee.class, matricule);
         return emp.getDevices();
     }
+
+	@Override
+	public Employee login(Long matricule, String password) {
+		Employee emp = em.createQuery("select c from Employee c where c.matricule = :matricule "
+				+ "and c.password = :password",Employee.class)
+				.setParameter("matricule", matricule)
+				.setParameter("password",password )
+				.getSingleResult();
+		return emp;
+		
+	}
+
+	@Override
+	public List<String> getEmpNames() {
+		List<Employee> emps = em.createQuery("select c from Employee c",Employee.class).getResultList();
+		List<String> names = new ArrayList<>();
+		for(Employee e: emps)
+		{
+			names.add(e.getFirstName());
+		}
+		return names;
+	}
+
+	@Override
+	public List<Employee> allEmployees() {
+		
+		return em.createQuery("select c from Employee c", Employee.class).getResultList();
+	}
+
+	@Override
+	public List<Device> allDevices() {
+		
+		return em.createQuery("select c from Device c",Device.class).getResultList();
+	}
 
 }

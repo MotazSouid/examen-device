@@ -4,69 +4,141 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.xml.registry.infomodel.User;
+import javax.faces.context.FacesContext;
 
-import tn.entities.Utilisateur;
-import tn.entities.Project;
-import tn.interfaces.examenServiceRemote;
-import tn.services.examenService;
+import tn.entities.Device;
+import tn.entities.Employee;
+import tn.entities.EmployeeType;
+import tn.interfaces.EmployeeServiceRemote;
 
 @ManagedBean(name="examenBean")
 @SessionScoped
 public class ExamenBean implements Serializable {
-	private String login;
+	private long matricule;
 	private String password;
-	private Utilisateur user;
-	
+	private Employee emp;
+	private List<Device> devices;
+	private List<String> names;
+	private List<String> models;
+	private Device device;
+	private String name;
+	private String model;
+	private List<Employee> employees;
 	@EJB
-	examenServiceRemote examenService;
+	EmployeeServiceRemote employeService;
 	
-	public String Login()
+	public String affecterDevice()
 	{
-		user = examenService.login(login, password);
-		if(user.getRole().equals("PRODUCT_OWNER") || user.getRole().equals("CLIENT"))
-		return "/productOwner?faces-redirect=true";
+		employeService.affecterDeviceAEmployee(device.getUniqueIdentifier(), emp.getMatricule());
+		return "productOwner?faces-redirect=true";
+	}
+	
+	public String login()
+	{
+		emp = employeService.login(matricule, password);
+		String navigateTo = "";
+		if(emp!= null)
+		{
+		if(emp.getEmployeeType().toString().equals("EMP"))
+		{
+			devices = employeService.allDevices();
+			employees = employeService.allEmployees();
+			navigateTo = "productOwner?faces-redirect=true";
+		}
 		else
-			return "/dev?faces-redirect=true";
+		{
+			devices = employeService.allDevices();
+			employees = employeService.allEmployees();
+			navigateTo = "productOwner?faces-redirect=true";
+		}
+		}
+		else
+		{
+			FacesContext.getCurrentInstance().addMessage("form:btn", new FacesMessage("bad credentials"));
+		}
+		return navigateTo;
 	}
 	
-	public List<Project> getProjects()
-	{
-		return examenService.getAllProjects();
+	public long getMatricule() {
+		return matricule;
 	}
-
-	public String getLogin() {
-		return login;
+	public void setMatricule(long matricule) {
+		this.matricule = matricule;
 	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
 	public String getPassword() {
 		return password;
 	}
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	public examenServiceRemote getExamenService() {
-		return examenService;
+	public Employee getEmp() {
+		return emp;
+	}
+	public void setEmp(Employee emp) {
+		this.emp = emp;
+	}
+	public List<Device> getDevices() {
+		return devices;
+	}
+	public void setDevices(List<Device> devices) {
+		this.devices = devices;
+	}
+	public EmployeeServiceRemote getEmployeService() {
+		return employeService;
+	}
+	public void setEmployeService(EmployeeServiceRemote employeService) {
+		this.employeService = employeService;
 	}
 
-	public void setExamenService(examenServiceRemote examenService) {
-		this.examenService = examenService;
+	public List<String> getNames() {
+		return names;
 	}
 
-	public Utilisateur getUser() {
-		return user;
+	public void setNames(List<String> names) {
+		this.names = names;
 	}
 
-	public void setUser(Utilisateur user) {
-		this.user = user;
+	public List<String> getModels() {
+		return models;
 	}
-	
+
+	public void setModels(List<String> models) {
+		this.models = models;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getModel() {
+		return model;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+
+	public Device getDevice() {
+		return device;
+	}
+
+	public void setDevice(Device device) {
+		this.device = device;
+	}
+
+	public List<Employee> getEmployees() {
+		return employees;
+	}
+
+	public void setEmployees(List<Employee> employees) {
+		this.employees = employees;
+	}
+		
 }

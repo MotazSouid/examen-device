@@ -20,4 +20,12 @@ public interface EmployeeServiceRemote {
 	
 	public void suppEmpAllDev (Long matricule);
 	
+	public Employee login(Long matricule, String password);
+	
+	public List<String> getEmpNames();
+	
+	public List<Employee> allEmployees();
+	
+	public List<Device> allDevices();
+	
 }
