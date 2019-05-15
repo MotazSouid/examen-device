@@ -2,7 +2,7 @@
     <wb-module deploy-name="examen-blanc-ear">
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/ear-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/application" tag="defaultRootSource"/>
-        <dependent-module archiveName="examen-blanc-web.war" deploy-path="/" handle="module:/classpath/var/M2_REPO/tn/esprit/examen-blanc-web/0.0.1-SNAPSHOT/examen-blanc-web-0.0.1-SNAPSHOT.war">
+        <dependent-module archiveName="examen-blanc-web.war" deploy-path="/" handle="module:/resource/examen-blanc-web/examen-blanc-web">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="examen-blanc-ejb.jar" deploy-path="/" handle="module:/resource/examen-blanc-ejb/examen-blanc-ejb">

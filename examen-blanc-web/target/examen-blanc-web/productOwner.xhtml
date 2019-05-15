@@ -9,9 +9,8 @@ xmlns:ui="http://java.sun.com/jsf/facelets" template="/template/template.xhtml"
 
 	
 		<h:selectOneMenu value="#{examenBean.emp}" >
-			<f:selectItems value="#{examenBean.employees}" 
-				var="emp" itemValue="#{emp.firstName} #{emp.lastName}" 
-				itemLabel="#{emp}" />
+		<f:selectItem itemLabel="#{examenBean.emp.firstName}" itemValue="" />
+			<f:selectItems value="#{examenBean.employees}" />
 		</h:selectOneMenu>
 		
 
