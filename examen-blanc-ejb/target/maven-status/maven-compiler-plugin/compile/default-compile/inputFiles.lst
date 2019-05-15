@@ -1,6 +1,8 @@
-C:\Users\EliteBook\workspace\examen-blanc\examen-blanc-ejb\src\main\java\tn\entities\ReponseSondage.java
-C:\Users\EliteBook\workspace\examen-blanc\examen-blanc-ejb\src\main\java\tn\entities\Personne.java
-C:\Users\EliteBook\workspace\examen-blanc\examen-blanc-ejb\src\main\java\tn\interfaces\SondageServiceRemote.java
-C:\Users\EliteBook\workspace\examen-blanc\examen-blanc-ejb\src\main\java\tn\interfaces\SondageServiceLocal.java
-C:\Users\EliteBook\workspace\examen-blanc\examen-blanc-ejb\src\main\java\tn\entities\QuestionSondage.java
-C:\Users\EliteBook\workspace\examen-blanc\examen-blanc-ejb\src\main\java\tn\interfaces\SondageService.java
+C:\Users\EliteBook\workspace\examen-blanc\examen-blanc-ejb\src\main\java\tn\entities\Device.java
+C:\Users\EliteBook\workspace\examen-blanc\examen-blanc-ejb\src\main\java\tn\entities\Employee.java
+C:\Users\EliteBook\workspace\examen-blanc\examen-blanc-ejb\src\main\java\tn\entities\Brand.java
+C:\Users\EliteBook\workspace\examen-blanc\examen-blanc-ejb\src\main\java\tn\services\EmployeService.java
+C:\Users\EliteBook\workspace\examen-blanc\examen-blanc-ejb\src\main\java\tn\entities\EmployeeType.java
+C:\Users\EliteBook\workspace\examen-blanc\examen-blanc-ejb\src\main\java\tn\interfaces\EmployeeServiceRemote.java
+C:\Users\EliteBook\workspace\examen-blanc\examen-blanc-ejb\src\main\java\tn\entities\DeviceType.java
+C:\Users\EliteBook\workspace\examen-blanc\examen-blanc-ejb\src\main\java\tn\interfaces\EmployeeServiceLocal.java

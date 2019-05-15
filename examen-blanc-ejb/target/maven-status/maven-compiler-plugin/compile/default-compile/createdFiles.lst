@@ -1,6 +1,8 @@
-tn\interfaces\SondageServiceLocal.class
-tn\entities\QuestionSondage.class
-tn\entities\ReponseSondage.class
-tn\entities\Personne.class
-tn\interfaces\SondageService.class
-tn\interfaces\SondageServiceRemote.class
+tn\entities\Device.class
+tn\services\EmployeService.class
+tn\entities\EmployeeType.class
+tn\entities\DeviceType.class
+tn\entities\Employee.class
+tn\interfaces\EmployeeServiceLocal.class
+tn\entities\Brand.class
+tn\interfaces\EmployeeServiceRemote.class
